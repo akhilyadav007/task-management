@@ -2,7 +2,7 @@ class UserTasksController < ApplicationController
   before_action :set_user_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user_tasks = current_user.user_tasks.all
+    @user_tasks = UserTask.all
   end
 
   def show
@@ -16,10 +16,9 @@ class UserTasksController < ApplicationController
   end
 
   def create
-    service = UserTaskService.new(current_user, user_task_params)
-    success, @user_task = service.create
+    @user_task = current_user.user_tasks.build(user_task_params)
 
-    if success
+    if @user_task.save
       redirect_to @user_task, notice: 'Task was successfully created.'
     else
       render :new
@@ -38,21 +37,17 @@ class UserTasksController < ApplicationController
   end
 
   def destroy
-    service = UserTaskService.new(current_user, user_task_params)
-    if service.destroy(@user_task)
-      redirect_to user_tasks_url, notice: 'Task was successfully destroyed.'
-    else
-      redirect_to user_tasks_url, alert: 'Task could not be destroyed.'
-    end
+    @user_task.destroy
+    redirect_to user_tasks_url, notice: 'Task was successfully destroyed.'
   end
 
   private
 
-  def set_user_task
-    @user_task = current_user.user_tasks.find(params[:id])
-  end
+    def set_user_task
+      @user_task = UserTask.find(params[:id])
+    end
 
-  def user_task_params
-    params.require(:user_task).permit(:title, :description, :state, :deadline)
-  end
+    def user_task_params
+      params.require(:user_task).permit(:title, :description, :state, :deadline)
+    end
 end

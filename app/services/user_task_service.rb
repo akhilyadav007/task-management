@@ -23,6 +23,6 @@ class UserTaskService
 
   def destroy(task)
     task.destroy
-    task.destroyed?
+    true
   end
 end
