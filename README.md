@@ -14,7 +14,7 @@ This is a Task Management web application built with Ruby on Rails and PostgreSQ
 - **Database:** PostgreSQL
 - **Frontend:** HTML, CSS, JavaScript
 - **Email Alerts:** Action Mailer
-- **Testing:** RSpec, Capybara
+- **Testing:** RSpec
 
 ## Setup Instructions
 ### Prerequisites
@@ -88,9 +88,7 @@ bundle exec rspec
 # Contributing
 Contributions are welcome! Please submit a pull request or open an issue to discuss potential changes.
 
-# License
-This project is licensed under the MIT License.
 
 # Author
-[Your Name](Your GitHub Profile)
-[Your Email]
+Akhil Yadav 
+akhilyadav.com@gmail.com
