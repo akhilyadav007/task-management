@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">User Task Details</h5>
+
+      <p class="card-text"><strong>Title:</strong> <%= @user_task.title %></p>
+
+      <p class="card-text"><strong>Description:</strong> <%= @user_task.description %></p>
+
+      <p class="card-text"><strong>State:</strong> <%= @user_task.state %></p>
+
+      <p class="card-text"><strong>Deadline:</strong> <%= @user_task.deadline %></p>
+
+      <%= link_to 'Edit', edit_user_task_path(@user_task), class: "btn btn-secondary mr-2" %>
+      <%= link_to 'Back', user_tasks_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

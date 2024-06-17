@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="border p-4"> 
+      <h2 class="text-center mb-4">User Task</h2> 
+
+      <%= form_with(model: @user_task, local: true) do |form| %>
+        <% if @user_task.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h3><%= pluralize(@user_task.errors.count, "error") %> prohibited this user task from being saved:</h3>
+            <ul>
+              <% @user_task.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group mb-4">
+          <%= form.label :title %>
+          <%= form.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-4">
+          <%= form.label :description %>
+          <%= form.text_area :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-4">
+          <%= form.label :state %>
+          <%= form.select :state, ['Backlog', 'In-progress', 'Done'], {}, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-4">
+          <%= form.label :deadline %>
+          <%= form.datetime_field :deadline, class: "form-control" %>
+        </div>
+
+        <div class="text-center mb-4">
+        <%= link_to 'Back', user_tasks_path, class: "btn btn-secondary mr-2" %>
+      
+        <% if action_name == 'new' %>
+          <%= form.submit "Create User Task", class: "btn btn-primary" %>
+        <% elsif action_name == 'show' %>
+          <%= link_to 'Edit', edit_user_task_path(@user_task), class: "btn btn-secondary" %>
+        <% elsif action_name == 'edit' %>
+          <%= form.submit "Update User Task", class: "btn btn-primary" %>
+          <%= link_to 'Show', @user_task, class: "btn btn-primary ml-2" %>
+        <% end %>
+      </div>      
+      <% end %>
+    </div>
+  </div>
+</div>
