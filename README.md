@@ -85,10 +85,6 @@ bundle exec rspec
 - **Collaborators:** Allow users to assign tasks to collaborators.
 - **Task Categories:** Add categories to organize tasks.
 
-# Contributing
-Contributions are welcome! Please submit a pull request or open an issue to discuss potential changes.
-
-
 # Author
 Akhil Yadav 
 akhilyadav.com@gmail.com
